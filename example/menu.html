@@ -1,0 +1,46 @@
+<html>
+
+<head>
+
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<script type="text/javascript" src="../source/script/tm.js"></script>
+<link rel="stylesheet" href="../source/style/tm.css">
+
+<script type="text/javascript">
+var tm;
+
+function body_load()
+{
+    tm = new treemenu("tm", "container", window.parent.arena);
+
+    tm.init();
+
+    tm.add("device", "", "Network Device", "page/device.html");
+    tm.add("descript", "device", "Descript", "page/descript.html");
+
+    tm.add("system", "device", "System<br>Setting", "page/system.html");
+    tm.add("date_time", "system", "Date/Time", "page/date_time.html");
+
+    tm.add("wifi", "device", "Wi-Fi", "page/wifi.html");
+    tm.add("radio", "wifi", "Radio Setting", "page/radio.html");
+    tm.add("wps", "wifi", "Wi-Fi<br>Protected<br>Setup", "page/wps.html");
+
+    tm.add("limit", "wifi", "Limit", "page/limit.html");
+    tm.add("station", "limit", "Station", "page/station.html");
+    tm.add("schedule", "limit", "Schedule", "page/schedule.html");
+
+    tm.add("log", "device", "Log", "");
+    tm.add("security", "log", "Security", "");
+    tm.add("attack", "security", "Attack", "page/attack.html");
+
+    tm.show();
+}
+</script>
+
+<head>
+
+<body onload="body_load()">
+<div id="container"></div>
+</body>
+
+</html>

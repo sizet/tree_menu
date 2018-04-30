@@ -1,0 +1,144 @@
+<!-- © -->
+
+<html>
+
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body class="css_body">
+
+<div class="css_div_form_title_large">使用方式</div>
+<div class="css_div_form_body_large">
+  <br>
+
+  01. 網頁內設定載入相關的檔案.<br>
+  <div class="css_div_attent">
+    <font class="css_font_g1">
+    &lt;script type="text/javascript" src="script/tm.js"&gt;&lt;/script&gt;<br>
+    &lt;link rel="stylesheet" href="style/tm.css"&gt;<br>
+    </font>
+  </div>
+  <br><br>
+
+  02. 網頁的 body 內定義一個 div 元素, 選單會放在此元素內, 元素的 id 自定.<br>
+  <div class="css_div_attent">
+    <font class="css_font_g1">&lt;div id="container"&gt;&lt;/div&gt;</font><br>
+  </div>
+  <br><br>
+
+  03. 網頁的 head 內定義 script 區塊, 撰寫產生選單的程式.<br>
+<pre class="css_pre_code">
+&lt;script type="text/javascript"&gt;
+// 宣告紀錄選單資料的變數 (必須是全域變數).
+var tm;
+
+// 產生選單.
+function body_load()
+{
+    // 產生選單物件.
+    // 參數一 : 紀錄選單的變數的名稱.
+    // 參數二 : 放置選單的 div 元素的 id.
+    // 參數三 : 點擊選單後網頁要顯示在哪個 frame.
+    tm = new treemenu("tm", "container", window.parent.arena);
+
+    // 初始化.
+    tm.init();
+
+
+    // 增加選單的節點.
+    // 參數一 : 節點的名稱, 不可重複.
+    // 參數二 : 此節點要放在哪個父節點之下, 空字串表是此節點是根節點.
+    // 參數三 : 此節點顯示的選單文字描述, 可以在文字中加入 &lt;br&gt; 換行.
+    // 參數四 : 此節點要連結到哪個網頁, 可以是空字串.
+    tm.add("device", "", "Network Device", "page/device.html");
+
+    // device -> descript.
+    tm.add("descript", "device", "Descript", "page/descript.html");
+
+
+    // device -> system.
+    tm.add("system", "device", "System&lt;br&gt;Setting", "page/system.html");
+
+    // device -> system -> date_time.
+    tm.add("date_time", "system", "Date/Time", "page/date_time.html");
+
+
+    // device -> wifi.
+    tm.add("wifi", "device", "Wi-Fi", "page/wifi.html");
+
+    // device -> wifi -> radio.
+    tm.add("radio", "wifi", "Radio Setting", "page/radio.html");
+
+    // device -> wifi -> wps.
+    tm.add("wps", "wifi", "Wi-Fi&lt;br&gt;Protected&lt;br&gt;Setup", "page/wps.html");
+
+
+    // device -> wifi -> limit.
+    tm.add("limit", "wifi", "Limit", "page/limit.html");
+
+    // device -> wifi -> limit -> station.
+    tm.add("station", "limit", "Station", "page/station.html");
+
+    // device -> wifi -> limit -> schedule.
+    tm.add("schedule", "limit", "Schedule", "page/schedule.html");
+
+
+    // device -> log.
+    tm.add("log", "device", "Log", "");
+
+    // device -> log -> security.
+    tm.add("security", "log", "Security", "");
+
+    // device -> log -> security -> attack.
+    tm.add("attack", "security", "Attack", "page/attack.html");
+
+
+    // 選單的節點增加完畢, 顯示選單.
+    tm.show();
+}
+&lt;/script&gt;
+</pre>
+  <br><br>
+
+  04. 網頁的 body 設定載入後執行產生選單的函式.<br>
+  <div class="css_div_attent">
+    <font class="css_font_g1">&lt;body onload="body_load"&gt;</font><br>
+  </div>
+  <br><br>
+
+  其他-01. <font class="css_font_b1">tm.js</font> 內紀錄圖片路徑的變數需要指定正確.<br>
+  <div class="css_div_attent">
+    // 此路徑必須以使用的網頁為基準.<br>
+    <font class="css_font_p1">var image_path = "../source/image/";</font><br>
+  </div>
+  <br><br>
+
+  其他-02. <font class="css_font_g1">${treemenu}.do_trigger("${name}")</font>
+  此函式可以直接定位到指定的選單節點.<br>
+<pre class="css_pre_code">
+// 定位到 wifi -> limit -> station 此節點.
+tm.do_trigger("station");
+</pre>
+  <br><br>
+
+  其他-03. 如何清除目前的選單並重新產生.<br>
+<pre class="css_pre_code">
+// 先初始化.
+tm.init();
+
+// 增加選單的節點.
+tm.add(...);
+...
+
+// 顯示選單.
+tm.show();
+</pre>
+  <br><br>
+
+</div>
+
+</body>
+
+</html>

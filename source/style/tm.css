@@ -1,0 +1,59 @@
+/*
+©.
+https://github.com/sizet/tree_menu
+*/
+
+*
+{
+    font-family: Courier New, Courier;
+    font-size: 16px;
+}
+
+.css_tm_div
+{
+}
+.css_tm_table
+{
+    border: 0px solid #000000;
+    border-collapse: collapse;
+    margin: 0px 0px 0px 0px;
+    padding: 0px;
+}
+.css_tm_td_image
+{
+    vertical-align: middle;
+    border: 0px;
+    padding: 0px;
+}
+.css_tm_td_text
+{
+    vertical-align: middle;
+    text-align: left;
+    border: 0px solid #000000;
+    padding: 0px;
+}
+.css_tm_img
+{
+    border: 0px solid #000000;
+}
+
+a:link
+{
+    color: #0000ff;
+    text-decoration: none;
+}
+a:active
+{
+    color: #0000ff;
+    text-decoration: none;
+}
+a:visited
+{
+    color: #0000ff;
+    text-decoration: none;
+}
+a:hover
+{
+    color: #007f00;
+    text-decoration: none;
+}
